@@ -12,27 +12,29 @@ const inputRadios = document.querySelectorAll('input[name="state"]');
 // const btn = document.querySelector('button[type="submit"]');
 const form = document.querySelector('.form');
 
-let inputNumber;
+// let inputNumber;
 
-delayInput.addEventListener('input', ev => {
-  inputNumber = parseInt(ev.target.value);
-  console.log(inputNumber);
-});
+// delayInput.addEventListener('input', ev => {
+//   inputNumber = parseInt(ev.target.value);
+//   console.log(inputNumber);
+// });
 
-let selectedState;
+// let selectedState;
 
-inputRadios.forEach(radio => {
-  radio.addEventListener('change', ev => {
-    if (ev.target.checked) {
-      selectedState = ev.target.value;
-      console.log('Selected State:', selectedState);
-    }
-  });
-});
+// inputRadios.forEach(radio => {
+//   radio.addEventListener('change', ev => {
+//     if (ev.target.checked) {
+//       selectedState = ev.target.value;
+//       console.log('Selected State:', selectedState);
+//     }
+//   });
+// });
 
 form.addEventListener('submit', ev => {
   ev.preventDefault();
 
+  const inputNumber = form.elements.delay.value;
+  const selectedState = form.elements.state.value;
   createPromise(inputNumber, selectedState).then(onFulfilled).catch(onRejected);
 
   function createPromise(delay, state) {
