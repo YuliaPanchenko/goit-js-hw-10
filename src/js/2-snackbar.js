@@ -35,7 +35,12 @@ form.addEventListener('submit', ev => {
 
   const inputNumber = form.elements.delay.value;
   const selectedState = form.elements.state.value;
-  createPromise(inputNumber, selectedState).then(onFulfilled).catch(onRejected);
+
+  
+  createPromise(inputNumber, selectedState)
+  .then(onFulfilled)
+  .catch(onRejected)
+  .finally(form.reset());
 
   function createPromise(delay, state) {
     const promise = new Promise((resolve, reject) => {
